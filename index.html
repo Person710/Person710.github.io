@@ -10,3 +10,59 @@
     <a href="https://scratch.mit.edu">Visit Scratch</a>
   </body>
 </html>
+
+
+# Assign alphabet a string value "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
+from turtle import position
+
+
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+# Get secret message from user input.
+
+# Assign the secret message to stringToEncrypt
+while True:
+   try:
+    print("System activated")
+    stringToEncrypt = input("Insert message ")
+    shiftAmount = int(input("whats the secret key? enter a number from 1 to 25 "))
+    if shiftAmount > 25:
+        print("use a lower number")
+        continue
+    elif shiftAmount < -25:
+        print("use a higher number")
+        continue
+    else:
+        break
+   except ValueError: 
+    print("the key must be an integer")
+    continue
+# Get secret key from user, the value should be an integer from 1 - 25.
+
+# Assign the secret key to shiftAmount
+# Extra bonus yippee hooray - tell the user if they need to enter a number or if it is too high or low
+
+
+# Assign encryptedString an empty string ""
+encryptedString = ""
+
+
+# Encrypt each letter in the message, keep other characters (punctuation)
+# for letter in stringToEncrypt
+for letter in stringToEncrypt:
+    position = alphabet.find(letter.upper())
+#### Find the letter in alphabet and assign the index to position
+#### alphabet.find(letter.upper()) will find the index of the first time the letter appears
+#### Add position and shiftAmount and assign the value to newPosition
+    newPosition = position + shiftAmount
+#### if letter in alphabet
+    if letter.upper() in alphabet:
+######## Add encryptedString and alphabet[newPosition] and assign to encryptedString
+        encryptedString += alphabet[newPosition]
+#### else
+    else:
+######## Add encryptedString and letter and assign to encryptedString
+        encryptedString += letter
+print(encryptedString)
+print("System deactivated")
+    
